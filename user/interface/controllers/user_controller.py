@@ -12,7 +12,7 @@ from containers import Container
 from user.application.user_service import UserService
 from user.domain.user import User
 
-router = APIRouter(prefix="/users")
+router = APIRouter(prefix="/users", tags=["users"])
 
 class CreateUser(BaseModel):
     name: str = Field(min_length=2, max_length=32)
