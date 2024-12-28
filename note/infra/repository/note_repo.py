@@ -1,11 +1,12 @@
 from fastapi import HTTPException
-from sqlalchemy.orm import joinedload, Query
+from sqlalchemy.orm import Query, joinedload
 
 from database import SessionLocal
 from note.domain.note import Note as NoteVO
 from note.domain.repository.note_repo import INoteRepository
-from utils.db_utils import row_to_dict
 from note.infra.db_models.note import Note, Tag
+from utils.db_utils import row_to_dict
+
 
 class NoteRepository(INoteRepository):
     def get_notes(

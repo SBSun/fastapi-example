@@ -1,16 +1,15 @@
 from datetime import datetime
-from typing import Annotated, Dict, List
+from typing import Annotated
 
-from dependency_injector.wiring import inject, Provide
+from dependency_injector.wiring import Provide, inject
 from fastapi import APIRouter
 from fastapi.params import Depends
 from fastapi.security import OAuth2PasswordRequestForm
-from pydantic import BaseModel, Field, EmailStr
+from pydantic import BaseModel, EmailStr, Field
 
-from common.auth import CurrentUser, get_current_user, get_admin_user
+from common.auth import CurrentUser, get_admin_user, get_current_user
 from containers import Container
 from user.application.user_service import UserService
-from user.domain.user import User
 
 router = APIRouter(prefix="/users", tags=["users"])
 

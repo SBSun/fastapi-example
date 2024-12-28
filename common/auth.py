@@ -1,9 +1,9 @@
 from dataclasses import dataclass
-from datetime import timedelta, datetime, timezone
+from datetime import datetime, timedelta, timezone
 from enum import StrEnum
 from typing import Annotated
 
-from fastapi import HTTPException, status, Depends
+from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from starlette.status import HTTP_403_FORBIDDEN

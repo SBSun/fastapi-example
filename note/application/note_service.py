@@ -5,6 +5,7 @@ from ulid import ULID
 from note.domain.note import Note, Tag
 from note.domain.repository.note_repo import INoteRepository
 
+
 class NoteService:
     def __init__(
         self,

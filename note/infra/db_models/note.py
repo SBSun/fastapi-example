@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 
-from sqlalchemy import Table, Column, String, Text, ForeignKey, DateTime
-from sqlalchemy.orm import mapped_column, Mapped, relationship
+from sqlalchemy import Column, DateTime, ForeignKey, String, Table, Text
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from database import Base
 

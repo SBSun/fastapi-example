@@ -1,10 +1,11 @@
 from datetime import datetime
+
 from dependency_injector.wiring import inject
 from fastapi import HTTPException
 from starlette.status import HTTP_401_UNAUTHORIZED
 from ulid import ULID
 
-from common.auth import create_access_token, Role
+from common.auth import Role, create_access_token
 from user.domain.repository.user_repo import IUserRepository
 from user.domain.user import User
 from utils.crypto import Crypto

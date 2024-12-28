@@ -6,6 +6,7 @@ from user.domain.user import User as UserVO
 from user.infra.db_models.user import User
 from utils.db_utils import row_to_dict
 
+
 class UserRepository(IUserRepository):
     def save(self, user: UserVO):
         new_user = User(

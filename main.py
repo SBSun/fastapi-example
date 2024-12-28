@@ -1,9 +1,10 @@
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from starlette.responses import JSONResponse
+
 from containers import Container
-from user.interface.controllers.user_controller import router as user_routers
 from note.interface.controllers.note_controller import router as note_routers
+from user.interface.controllers.user_controller import router as user_routers
 
 app = FastAPI()
 app.container = Container()

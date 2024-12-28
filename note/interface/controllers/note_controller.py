@@ -2,13 +2,12 @@ from dataclasses import asdict
 from datetime import datetime
 from typing import Annotated
 
-from dependency_injector.wiring import inject, Provide
+from dependency_injector.wiring import Provide, inject
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel, Field
 
 from common.auth import CurrentUser, get_current_user
 from containers import Container
-
 from note.application.note_service import NoteService
 
 router = APIRouter(prefix="/notes", tags=["notes"])
