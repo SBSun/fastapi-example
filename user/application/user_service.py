@@ -6,17 +6,22 @@ from starlette.status import HTTP_401_UNAUTHORIZED
 from ulid import ULID
 
 from common.auth import Role, create_access_token
+from user.application.email_service import EmailService
+from user.application.send_welcome_email_task import SendWelcomeEmailTask
 from user.domain.repository.user_repo import IUserRepository
 from user.domain.user import User
 from utils.crypto import Crypto
+
 
 class UserService:
     @inject
     def __init__(
         self,
-        user_repo: IUserRepository
+        user_repo: IUserRepository,
+        email_service: EmailService
     ):
         self.user_repo = user_repo
+        self.email_service = email_service
         self.ulid = ULID()
         self.crypto = Crypto()
 
@@ -49,6 +54,8 @@ class UserService:
             updated_at=now
         )
         self.user_repo.save(user)
+
+        SendWelcomeEmailTask().delay(user.email)
 
         return user
 
