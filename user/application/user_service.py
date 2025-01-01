@@ -55,7 +55,7 @@ class UserService:
         )
         self.user_repo.save(user)
 
-        SendWelcomeEmailTask().delay(user.email)
+        # SendWelcomeEmailTask().delay(user.email)
 
         return user
 

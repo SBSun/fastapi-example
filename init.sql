@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS `fastapi-ca`;
+
 USE fastapi-ca;
 
 INSERT INTO fastapi-ca.User (id, name, email, password, created_at, updated_at, memo) VALUES ('UserID-00', 'TestUser0', 'test-user0@test.com', '$2b$12$E6bUVh3Y8PQaJya8JAcPeuA8GXqCurRMA79l84CWA3ityt4T8Szwm', '2024-12-25 12:03:24', '2024-12-25 12:03:24', null);

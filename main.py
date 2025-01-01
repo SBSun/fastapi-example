@@ -5,7 +5,6 @@ from fastapi.exceptions import RequestValidationError
 from starlette.responses import JSONResponse
 
 from containers import Container
-from example.context_sample import router as context_router
 from middlewares import create_middlewares
 from note.interface.controllers.note_controller import router as note_routers
 from user.interface.controllers.user_controller import router as user_routers
@@ -15,7 +14,6 @@ app.container = Container()
 
 app.include_router(user_routers)
 app.include_router(note_routers)
-app.include_router(context_router)
 
 create_middlewares(app)
 

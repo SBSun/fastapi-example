@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  db:
+    image: 'mysql:8.4.2'
+    container_name: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  rabbitmq:
+    image: 'rabbitmq:3-management'
+    container_name: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=root
+      - RABBITMQ_DEFAULT_USER=test
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    depends_on:
+      - db
+
+  backend:
+    image: 'fastapi-example:latest'
+    container_name: fastapi-example
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
+      - rabbitmq
